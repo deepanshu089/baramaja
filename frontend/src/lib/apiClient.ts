@@ -1,5 +1,11 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
+const cleanUrl = (base: string, path: string) => {
+  const cleanBase = base.endsWith('/') ? base.slice(0, -1) : base;
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${cleanBase}${cleanPath}`;
+};
+
 const getHeaders = () => {
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -16,14 +22,14 @@ const getHeaders = () => {
 
 export const api = {
   get: async (endpoint: string) => {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(cleanUrl(BASE_URL, endpoint), {
       method: 'GET',
       headers: getHeaders(),
     });
     return res.json();
   },
   post: async (endpoint: string, data: any) => {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(cleanUrl(BASE_URL, endpoint), {
       method: 'POST',
       headers: getHeaders(),
       body: JSON.stringify(data),
@@ -31,7 +37,7 @@ export const api = {
     return res.json();
   },
   put: async (endpoint: string, data: any) => {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(cleanUrl(BASE_URL, endpoint), {
       method: 'PUT',
       headers: getHeaders(),
       body: JSON.stringify(data),
@@ -39,7 +45,7 @@ export const api = {
     return res.json();
   },
   patch: async (endpoint: string, data?: any) => {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(cleanUrl(BASE_URL, endpoint), {
       method: 'PATCH',
       headers: getHeaders(),
       body: data ? JSON.stringify(data) : undefined,
@@ -47,7 +53,7 @@ export const api = {
     return res.json();
   },
   delete: async (endpoint: string) => {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await fetch(cleanUrl(BASE_URL, endpoint), {
       method: 'DELETE',
       headers: getHeaders(),
     });

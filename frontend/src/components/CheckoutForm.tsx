@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useShop } from '@/context/ShopContext';
 import { formatPrice } from '@/lib/utils';
+import { api } from '@/lib/apiClient';
 import { CheckCircle2, CreditCard, ShieldCheck, Landmark, Compass, ShoppingBag, ArrowLeft, Loader2, Sparkles, Tag } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -79,12 +80,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ onBack }) => {
     setIsApplyingCoupon(true);
     setCouponError('');
     try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'}/coupons/validate`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code: couponCode })
-      });
-      const data = await res.json();
+      const data = await api.post('/coupons/validate', { code: couponCode });
       if (data.success && data.data) {
         setAppliedCoupon({ code: data.data.code, discount: data.data.discountPercentage });
         setCouponCode('');
@@ -144,13 +140,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ onBack }) => {
         paymentMethod: formData.paymentMethod,
       };
 
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
-      const res = await fetch(`${apiUrl}/orders`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
+      const data = await api.post('/orders', payload);
       
       if (data.success) {
         setTimeout(() => {

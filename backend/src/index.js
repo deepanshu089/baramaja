@@ -16,10 +16,19 @@ const allowedOrigins = process.env.FRONTEND_URL
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin) || allowedOrigins.includes('*') || process.env.NODE_ENV === 'development') {
+    
+    const isAllowed = 
+      allowedOrigins.includes(origin) || 
+      allowedOrigins.includes('*') || 
+      process.env.NODE_ENV === 'development' ||
+      origin.endsWith('.vercel.app') ||
+      origin.includes('baramaja') ||
+      origin.includes('baromojaindia');
+      
+    if (isAllowed) {
       return callback(null, true);
     }
-    return callback(null, false); // or pass an error
+    return callback(new Error('Not allowed by CORS'));
   },
   credentials: true,
 }));

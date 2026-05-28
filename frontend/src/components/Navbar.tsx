@@ -89,13 +89,12 @@ export const Navbar: React.FC = () => {
 
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group select-none">
-              <div className="relative flex items-center justify-center w-10 h-10 rounded-full border border-amber-600/30 bg-amber-50 group-hover:border-primary transition-all duration-300 shadow-sm">
-                <svg viewBox="0 0 24 24" className="w-6 h-6 text-amber-700 group-hover:text-primary group-hover:rotate-12 transition-all duration-500" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z" />
-                  <circle cx="12" cy="12" r="2" fill="currentColor" />
-                </svg>
-                <div className="absolute inset-0 rounded-full border border-dashed border-amber-600/20 animate-spin-slow" />
+              <div className="relative flex items-center justify-center w-10 h-10 rounded-full border border-amber-600/30 bg-amber-50 group-hover:border-primary transition-all duration-300 shadow-sm overflow-hidden">
+                <img
+                  src="https://res.cloudinary.com/dieef3h1w/image/upload/v1779975413/cropped_circle_image_jpnao1.png"
+                  alt="Baramaja Logo"
+                  className="w-full h-full object-cover group-hover:rotate-12 transition-all duration-500"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display text-xl sm:text-2xl font-bold tracking-wider text-amber-950 leading-none group-hover:text-primary transition-colors duration-300">BARAMAJA</span>
@@ -342,7 +341,14 @@ export const Navbar: React.FC = () => {
             >
               <div>
                 <div className="flex items-center justify-between pb-6 border-b border-orange-200/50">
-                  <span className="font-display text-lg font-bold tracking-wider text-amber-950">BARAMAJA</span>
+                  <div className="flex items-center space-x-2.5">
+                    <img
+                      src="https://res.cloudinary.com/dieef3h1w/image/upload/v1779975413/cropped_circle_image_jpnao1.png"
+                      alt="Baramaja Logo"
+                      className="w-8 h-8 rounded-full object-cover"
+                    />
+                    <span className="font-display text-lg font-bold tracking-wider text-amber-950">BARAMAJA</span>
+                  </div>
                   <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-stone-700 hover:text-primary transition-colors">
                     <X size={20} />
                   </button>

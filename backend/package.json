@@ -6,7 +6,16 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "seed": "node src/utils/seed.js"
+    "seed": "node src/utils/seed.js",
+    "seed:kcdas": "node src/utils/seedKcDasSweets.js",
+    "seed:aflatun": "node src/utils/seedAflatunSweets.js",
+    "seed:karachihalwa": "node src/utils/seedKarachiHalwa.js",
+    "seed:baromoja": "node src/utils/seedBaromoja.js",
+    "seed:namastechanachur": "node src/utils/seedNamasteChanachur.js",
+    "seed:chintamani": "node src/utils/seedChintamaniMixture.js",
+    "seed:ruchimasalas": "node src/utils/seedRuchiMasalas.js",
+    "seed:jainasilpa": "node src/utils/seedJainaSilpaPickles.js",
+    "copy:hemp-to-kolkata": "node src/utils/copyHempBagsToKolkata.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

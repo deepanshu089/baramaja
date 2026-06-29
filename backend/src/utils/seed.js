@@ -121,13 +121,21 @@ const seedDatabase = async () => {
       },
 
       // --- Kolkata Categories ---
-      { 
-        slug: 'sweets', 
-        displayName: 'Sweets', 
+      {
+        slug: 'sweets',
+        displayName: 'Sweets',
         kolkataTitle: 'Kolkata Signature Mishti',
         kolkataSubtitle: 'SWEET TREASURES',
         region: kolkata._id,
-        sortOrder: 1 
+        sortOrder: 1
+      },
+      {
+        slug: 'mithai',
+        displayName: 'Mithai',
+        kolkataTitle: 'Aflatun Mithai Collection',
+        kolkataSubtitle: 'RICH MAWA DELIGHTS',
+        region: kolkata._id,
+        sortOrder: 7
       },
       { 
         slug: 'snacks', 

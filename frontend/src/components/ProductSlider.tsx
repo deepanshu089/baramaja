@@ -28,6 +28,8 @@ export const ProductSlider: React.FC<ProductSliderProps> = ({ title, subtitle, p
 
   if (products.length === 0) return null;
 
+  const isArHempSection = /hemp/i.test(title);
+
   return (
     <section className="py-10 bg-mandala-pattern">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,8 +41,16 @@ export const ProductSlider: React.FC<ProductSliderProps> = ({ title, subtitle, p
                 {subtitle}
               </span>
             )}
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-amber-950 font-serif-editorial">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-amber-950 font-serif-editorial flex items-center gap-3">
               {title}
+              {isArHempSection && (
+                <img
+                  src="/images/ar-hemp-logo.png"
+                  alt="AR Hemp Organic Products"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#cdc7b4] border-2 border-white shadow-md p-1 object-contain shrink-0"
+                  loading="lazy"
+                />
+              )}
             </h2>
           </div>
 

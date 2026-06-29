@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Search, Heart, ShoppingBag, Menu, X, Landmark, Compass, Trash2 } from 'lucide-react';
+import { Search, Heart, ShoppingBag, Menu, X, Trash2 } from 'lucide-react';
 import { useShop } from '@/context/ShopContext';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -125,7 +125,7 @@ export const Navbar: React.FC = () => {
                     selectedRegion === 'odisha' ? 'bg-red-800 text-amber-50 shadow-sm' : 'text-amber-900/80 hover:text-amber-900'
                   )}
                 >
-                  <Landmark size={12} /><span>Odisha</span>
+                  <span>Odisha</span>
                 </button>
                 <button
                   onClick={() => setRegion('kolkata')}
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
                     selectedRegion === 'kolkata' ? 'bg-amber-900 text-amber-50 shadow-sm' : 'text-amber-900/80 hover:text-amber-900'
                   )}
                 >
-                  <Compass size={12} /><span>Kolkata</span>
+                  <span>Kolkata</span>
                 </button>
               </div>
 
@@ -395,7 +395,7 @@ export const Navbar: React.FC = () => {
                         selectedRegion === 'odisha' ? 'bg-red-800 text-amber-50 shadow-sm' : 'text-amber-900/80'
                       )}
                     >
-                      <Landmark size={12} /><span>Odisha</span>
+                      <span>Odisha</span>
                     </button>
                     <button
                       onClick={() => { setRegion('kolkata'); setIsMobileMenuOpen(false); }}
@@ -403,7 +403,7 @@ export const Navbar: React.FC = () => {
                         selectedRegion === 'kolkata' ? 'bg-amber-900 text-amber-50 shadow-sm' : 'text-amber-900/80'
                       )}
                     >
-                      <Compass size={12} /><span>Kolkata</span>
+                      <span>Kolkata</span>
                     </button>
                   </div>
                 </div>

@@ -19,6 +19,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const discountPercent = Math.round(
     ((product.price - product.discountPrice) / product.price) * 100
   );
+  const isArHemp = /hemp/i.test(product.name);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -33,7 +34,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     >
       {/* Upper Media Section */}
       <div className="relative w-full h-[220px] bg-amber-50/20 overflow-hidden">
-        {/* Badges removed for clean aesthetic */}
+        {/* AR Hemp Organic Products badge */}
+        {isArHemp && (
+          <div className="absolute top-3 left-3 z-10 w-14 h-14 rounded-full bg-[#cdc7b4] border-2 border-white shadow-lg overflow-hidden ring-1 ring-amber-900/10 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6 p-1.5">
+            <img
+              src="/images/ar-hemp-logo.png"
+              alt="AR Hemp Organic Products"
+              className="w-full h-full object-contain rounded-full"
+              loading="lazy"
+            />
+          </div>
+        )}
 
         {/* Wishlist Button */}
         <button

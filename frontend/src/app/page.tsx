@@ -9,7 +9,7 @@ import { CartDrawer } from '@/components/CartDrawer';
 import { CheckoutForm } from '@/components/CheckoutForm';
 import { ProductDetailModal } from '@/components/ProductDetailModal';
 import { Footer } from '@/components/Footer';
-import { Compass, Landmark, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 
 export default function Home() {
   const { selectedRegion, setRegion, products, isLoadingProducts, categories } = useShop();
@@ -59,9 +59,6 @@ export default function Home() {
             <div className="bg-orange-50/40 border-b border-orange-100 py-6">
               <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-200/50 text-amber-800">
-                    {selectedRegion === 'odisha' ? <Landmark size={22} /> : <Compass size={22} />}
-                  </div>
                   <div>
                     <h3 className="font-serif-editorial text-base font-extrabold text-stone-900 flex items-center gap-1.5">
                       Showing {selectedRegion === 'odisha' ? 'Odisha' : 'Kolkata / Bengal'} Delicacies
